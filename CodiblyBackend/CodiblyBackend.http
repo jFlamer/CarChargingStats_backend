@@ -1,0 +1,6 @@
+@CodiblyBackend_HostAddress = http://localhost:5075
+
+GET {{CodiblyBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
