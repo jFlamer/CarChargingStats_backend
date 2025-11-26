@@ -33,8 +33,8 @@ namespace CodiblyBackend.Controllers
                 Date = summaryGroup.Key,
                 AvgValue = Math.Round(summaryGroup.Average(x => x.GetCEPercentage()), 2),
                 FuelMix = summaryGroup
-                    .SelectMany(x => x.FuelMix)
-                    .GroupBy(f => f.FuelType)
+                    .SelectMany(x => x.EnergySourceData)
+                    .GroupBy(f => f.Fuel)
                     .Select(global => new
                     {
                         Fuel = global.Key,
