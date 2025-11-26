@@ -1,17 +1,27 @@
-# --- Build results ---
+# --- Build Folders (Najważniejsze - to usunie śmieci ze zdjęcia) ---
 [Bb]in/
 [Oo]bj/
-/out/
 
-# --- IDEs ---
+# --- Visual Studio / VS Code ---
+.vs/
 .vscode/
-.idea/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-# --- Security ---
-.env
+# --- Pliki wykonywalne i biblioteki (na wszelki wypadek) ---
+*.dll
+*.exe
+*.pdb
+
+# --- .NET specific ---
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nuget.props
+*.nuget.targets
+
+# --- User specific settings ---
 appsettings.Development.json
 appsettings.local.json

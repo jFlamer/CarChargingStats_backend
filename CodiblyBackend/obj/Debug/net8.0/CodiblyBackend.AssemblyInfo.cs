@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CodiblyBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97f778732d62ec4bb2fd296f60a829982dcb3cfa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e85ddf3cc8ff6d77667027a9a5f282b2ddf87fb1")]
 [assembly: System.Reflection.AssemblyProductAttribute("CodiblyBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CodiblyBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
