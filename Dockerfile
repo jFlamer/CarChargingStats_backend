@@ -6,7 +6,7 @@ WORKDIR /src
 
 COPY . ./
 # WORKDIR "/src/CodiblyBackend"
-RUN dotnet publish "CodiblyBackend.csproj" -c Release -o /app/publish
+RUN dotnet publish "CodiblyBackend/CodiblyBackend.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 WORKDIR /app
