@@ -1,0 +1,17 @@
+# --- Build results ---
+[Bb]in/
+[Oo]bj/
+/out/
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- Security ---
+.env
+appsettings.Development.json
+appsettings.local.json
