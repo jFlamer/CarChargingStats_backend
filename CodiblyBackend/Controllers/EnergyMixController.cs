@@ -31,7 +31,15 @@ namespace CodiblyBackend.Controllers
             .Select(summaryGroup => new
             {
                 Date = summaryGroup.Key,
-                AvgValue = Math.Round(summaryGroup.Average(x => x.GetCEPercentage()), 2)
+                AvgValue = Math.Round(summaryGroup.Average(x => x.GetCEPercentage()), 2),
+                FuelMix = summaryGroup
+                    .SelectMany(x => x.FuelMix)
+                    .GroupBy(f => f.FuelType)
+                    .Select(global => new
+                    {
+                        Fuel = global.Key,
+                        Percentage = Math.Round(global.Average(f => f.Percentage), 1)
+                    }).ToList()
             }).ToList();
 
             var dailySummaries = summaryGroup
@@ -39,8 +47,10 @@ namespace CodiblyBackend.Controllers
             {
                 Date = group.Date,
                 AverageCEPercentage = group.AvgValue,
+                FuelMix = group.FuelMix,
                 msg = $"Average clean energy percentage for {group.Date:yyyy-MM-dd} is {group.AvgValue}%"
-            }).OrderBy(x => x.Date).ToList();
+            }).OrderBy(x => x.Date)
+            .Take(3).ToList();
 
             return Ok(dailySummaries);
         }
