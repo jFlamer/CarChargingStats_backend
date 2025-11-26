@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IpVgpKZJeIYn6nViEpcNI2+5XiqXK1AsV6HhodljeI+cZfzo2MPGNZbAmC127cBSd+5nDBPt3wEZ4LMgbG67uw==",
+  "dgSpecHash": "kn1bMpYMxPk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jagod\\sem5\\codibly\\CodiblyBackend.Tests\\CodiblyBackend.Tests.csproj",
+  "projectFilePath": "C:\\Users\\jagod\\sem5\\CarChargingStats_backend\\CodiblyBackend.Tests\\CodiblyBackend.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jagod\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\jagod\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",

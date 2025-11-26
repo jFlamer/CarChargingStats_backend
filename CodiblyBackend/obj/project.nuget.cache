@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4xOch1DjCoesr8HnPqTGmx6NUiHDU7yoqal6EojbwAMdUUERiUHng2ASxVbU3IAHeMePw70S5ttduwrUZOkivA==",
+  "dgSpecHash": "UAJzZm18wYM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jagod\\sem5\\codibly\\CodiblyBackend\\CodiblyBackend.csproj",
+  "projectFilePath": "C:\\Users\\jagod\\sem5\\CarChargingStats_backend\\CodiblyBackend\\CodiblyBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jagod\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.0\\microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "C:\\Users\\jagod\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
