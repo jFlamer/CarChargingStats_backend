@@ -93,7 +93,11 @@ namespace CodiblyBackend.Controllers
 
             // Sliding Window Algorithm
             int intervalsNeeded = request.Hours * 2; // 30-min intervals
-            var dataSorted = data.OrderBy(d => d.From).ToList();
+
+            var dataSorted = data
+            .Where(d => d.From >= DateTime.UtcNow)
+            .OrderBy(d => d.From)
+            .ToList();
 
             double maxCEPercentageAvg = -1;
             IntervalData? bestStartInterval = null;
