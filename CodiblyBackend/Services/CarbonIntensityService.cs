@@ -14,8 +14,8 @@ namespace CodiblyBackend.Services
 
         public async Task<List<IntervalData>> GetCIDataAsync3Days()
         {
-            var from = DateTime.Now.Date.ToString("yyyy-MM-ddTHH:mmZ");
-            var to = DateTime.Now.Date.AddDays(3).ToString("yyyy-MM-ddTHH:mmZ");
+            var from = DateTime.UtcNow.Date.ToString("yyyy-MM-ddTHH:mmZ");
+            var to = DateTime.UtcNow.Date.AddDays(4).ToString("yyyy-MM-ddTHH:mmZ");
 
             var url = $"https://api.carbonintensity.org.uk/generation/{from}/{to}";
 

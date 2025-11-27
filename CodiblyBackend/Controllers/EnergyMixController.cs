@@ -27,20 +27,41 @@ namespace CodiblyBackend.Controllers
                 return NotFound("No data available.");
             }
 
-            var summaryGroup = data.GroupBy(i => i.From.Date)
+            TimeZoneInfo ukTimeZone;
+            try 
+            {
+                ukTimeZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"); // Windows
+            }
+            catch (TimeZoneNotFoundException)
+            {
+                ukTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Europe/London"); // Linux/Docker
+            }
+
+            var todayInUK = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, ukTimeZone).Date;
+
+            var summaryGroup = data
+            .Select(x => new
+            {
+                OriginalData = x,
+                UkDate  = TimeZoneInfo.ConvertTimeFromUtc(x.From, ukTimeZone)   
+            }
+            )
+            .GroupBy(i => i.UkDate.Date)
+            .Where(g => g.Key >= todayInUK)
             .Select(summaryGroup => new
             {
                 Date = summaryGroup.Key,
-                AvgValue = Math.Round(summaryGroup.Average(x => x.GetCEPercentage()), 2),
+                AvgValue = Math.Round(summaryGroup.Average(x => x.OriginalData.GetCEPercentage()), 2),
                 FuelMix = summaryGroup
-                    .SelectMany(x => x.EnergySourceData)
+                    .SelectMany(x => x.OriginalData.EnergySourceData)
                     .GroupBy(f => f.Fuel)
                     .Select(global => new
                     {
                         Fuel = global.Key,
                         Percentage = Math.Round(global.Average(f => f.Percentage), 1)
                     }).ToList()
-            }).ToList();
+            }).OrderBy(x => x.Date)
+            .Take(3).ToList();
 
             var dailySummaries = summaryGroup
             .Select(group => new
@@ -49,8 +70,7 @@ namespace CodiblyBackend.Controllers
                 AverageCEPercentage = group.AvgValue,
                 FuelMix = group.FuelMix,
                 msg = $"Average clean energy percentage for {group.Date:yyyy-MM-dd} is {group.AvgValue}%"
-            }).OrderBy(x => x.Date)
-            .Take(3).ToList();
+            }).ToList();
 
             return Ok(dailySummaries);
         }
