@@ -41,7 +41,7 @@ REST API built with **.NET 8** for the **Codibly IT Academy 2025** recruitment t
     dotnet run --project CodiblyBackend
     ```
 3.  Open Swagger UI in your browser:
-    `http://localhost:8080/swagger`
+    `http://localhost:[something]/swagger`
 
 ### Method 2: Docker
 1.  Build the image:
@@ -99,9 +99,47 @@ Response Example:
 ```JSON
 [
   {
-    "date": "2025-11-27T00:00:00",
-    "averageCEPercentage": 45.5,
-    "fuelMix": [ ... ]
+    "date": "2025-11-29T00:00:00",
+    "averageCEPercentage": 74.01,
+    "fuelMix": [
+      {
+        "fuel": "biomass",
+        "percentage": 10.1
+      },
+      {
+        "fuel": "coal",
+        "percentage": 0
+      },
+      {
+        "fuel": "imports",
+        "percentage": 11.3
+      },
+      {
+        "fuel": "gas",
+        "percentage": 14.7
+      },
+      {
+        "fuel": "nuclear",
+        "percentage": 13.8
+      },
+      {
+        "fuel": "other",
+        "percentage": 0
+      },
+      {
+        "fuel": "hydro",
+        "percentage": 0
+      },
+      {
+        "fuel": "solar",
+        "percentage": 1.2
+      },
+      {
+        "fuel": "wind",
+        "percentage": 48.9
+      }
+    ],
+    "msg": "Average clean energy percentage for 2025-11-29 is 74.01%"
   }
 ]
 ```
