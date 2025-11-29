@@ -63,9 +63,11 @@ To run tests:
 dotnet test
 ```
 
-To generate a Code Coverage report:
+To access a Code Coverage report:
 ```bash
-dotnet test --collect:"XPlat Code Coverage"
+CodiblyBackend.Tests/
+├── coveragereport/ 
+    ├── index.html
 ```
 What is tested?
 

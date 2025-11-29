@@ -15,7 +15,7 @@ namespace CodiblyBackend.Controllers
             _service = service;
         }
 
-        // ENDPOINT 1: Wyświetlanie miksu energetycznego (średnie dla dni)
+        // ENDPOINT 1
         // GET: api/EnergyMix/daily-mix
         [HttpGet("daily-mix")]
         public async Task<IActionResult> GetDailyMix()
@@ -30,11 +30,11 @@ namespace CodiblyBackend.Controllers
             TimeZoneInfo ukTimeZone;
             try 
             {
-                ukTimeZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"); // Windows
+                ukTimeZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time"); //Windows
             }
             catch (TimeZoneNotFoundException)
             {
-                ukTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Europe/London"); // Linux/Docker
+                ukTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Europe/London"); //Linux/Docker
             }
 
             var todayInUK = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, ukTimeZone).Date;
@@ -75,7 +75,7 @@ namespace CodiblyBackend.Controllers
             return Ok(dailySummaries);
         }
 
-        // ENDPOINT 2: Obliczanie optymalnego okna ładowania
+        // ENDPOINT 2:
         // POST: api/EnergyMix/optimal-charging
         [HttpPost("optimal-charging")]
         public async Task<IActionResult> CalculateBestWindow([FromBody] ChargingRequest request)
@@ -91,8 +91,8 @@ namespace CodiblyBackend.Controllers
                 return NotFound("No data available.");
             }
 
-            // Sliding Window Algorithm
-            int intervalsNeeded = request.Hours * 2; // 30-min intervals
+            //Sliding Window Algorithm
+            int intervalsNeeded = request.Hours * 2; //30-min intervals
 
             var dataSorted = data
             .Where(d => d.From >= DateTime.UtcNow)

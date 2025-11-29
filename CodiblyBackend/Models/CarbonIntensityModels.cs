@@ -18,6 +18,11 @@ namespace CodiblyBackend.Models
         public List<SingleSourceData> EnergySourceData { get; set; } = new();
         public double GetCEPercentage()
         {
+            if (EnergySourceData == null || !EnergySourceData.Any())
+            {
+                return 0;
+            }
+            
             var cleanSrcs = new[] { "biomass", "nuclear", "hydro", "wind", "solar" };
 
             return EnergySourceData.Where(es => cleanSrcs.Contains(es.Fuel.ToLower()))
