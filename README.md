@@ -8,8 +8,7 @@ REST API built with **.NET 8** for the **Codibly IT Academy 2025** recruitment t
     * Fetches data for 3 days (Today, Tomorrow, The Day After).
     * Supports two data sources:
         * 🇬🇧 **UK:** [Carbon Intensity API](https://carbon-intensity.github.io/api-definitions/).
-        * 🇵🇱 **PL:** CSV parsing from **Polish Power Grid (PSE)**.
-    * **Smart Time Zones:** Automatic conversion from UTC to local time (GMT/BST for UK, CET/CEST for PL) to correctly group data into daily intervals.
+    * **Smart Time Zones:** Automatic conversion from UTC to local time (GMT/BST for UK) to correctly group data into daily intervals.
 
 2.  **Charging Optimization Algorithm (`POST /api/EnergyMix/optimal-charging`)**
     * Calculates the best time window (1-6h) with the highest share of RES (Renewable Energy Sources).
@@ -34,7 +33,7 @@ REST API built with **.NET 8** for the **Codibly IT Academy 2025** recruitment t
 ### Method 1: .NET CLI
 1.  Clone the repository:
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/jFlamer/CarChargingStats_backend.git
     cd CarChargingStats_backend
     ```
 2.  Run the application:
@@ -81,7 +80,7 @@ What is tested?
 ```plaintext
 CodiblyBackend/
 ├── Controllers/       # API Endpoints (EnergyMixController)
-├── Services/          # Business logic & Integration (UK API, PL PSE Parser)
+├── Services/          # Business logic & Integration (UK API)
 ├── Models/            # Data Models (DTOs)
 ├── Program.cs         # DI Configuration & Pipeline
 └── Dockerfile         # Docker Image Configuration (Multi-stage build)
