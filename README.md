@@ -151,8 +151,8 @@ Body:
 {
   "Hours": 3
 }
-Response Example:
 ```
+Response Example:
 
 ```
 JSON
